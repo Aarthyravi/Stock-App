@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock Details</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+      <div class="options-box">
+      <header>
+         <h1 class="header_title">Stocks</h1>
+       </header>
+       <aside>
+           <div>
+             <h4> Stocks</h4>
+           <nav  id="drawer" class="nav">
+             <ul class="nav_list" data-bind="foreach: List">
+               <li data-bind="click: $parent.changeLocation, text: title" class="nav_item"></li>
+             </ul>
+           </nav>
+             </div>
+         </aside>
+    </div>
+  </div>
+    <script src="js/knockout-3.4.2.js"></script>
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/script1.js"></script>
+</body>
+</html>
