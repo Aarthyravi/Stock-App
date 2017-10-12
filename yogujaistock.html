@@ -15,16 +15,18 @@
            <div>
              <h4> Stocks</h4>
            <nav  id="drawer" class="nav">
-             <ul class="nav_list" data-bind="foreach: List">
-               <li data-bind="click: $parent.changeLocation, text: title" class="nav_item"></li>
+             <ul class="nav_list" data-bind="foreach: stockList">
+               <li data-bind="click: $parent.changeStock, text: title" class="nav_item"></li><br><br>
              </ul>
            </nav>
              </div>
          </aside>
     </div>
+    <main id = "info">
+    </main>
   </div>
-    <script src="js/knockout-3.4.2.js"></script>
+    <script src="js/libs/knockout-3.4.2.js"></script>
     <script src="js/libs/jquery.min.js"></script>
-    <script src="js/script1.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
