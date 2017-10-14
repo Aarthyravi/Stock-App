@@ -9,13 +9,18 @@
   <div class="container">
       <div class="options-box">
       <header>
-         <h1 class="header_title">Stocks</h1>
+         <h1 class="header_title">Stocks Details</h1>
        </header>
        <aside>
            <div>
-             <h4> Stocks</h4>
-           <nav  id="drawer" class="nav">
+              <p style="text-align:left;">
+               Total Portfolio
+              <span id = "total" style="float:right;"></span>
+            </p>
+            <h2>Portfolio</h2><br>
+             <nav  id="drawer" class="nav">
              <ul class="nav_list" data-bind="foreach: stockList">
+               <h2 class = "price" style="float:right;" data-bind="text: total"></h2>
                <li data-bind="click: $parent.changeStock, text: title" class="nav_item"></li><br><br>
              </ul>
            </nav>
@@ -30,3 +35,4 @@
     <script src="js/app.js"></script>
 </body>
 </html>
+
