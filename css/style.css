@@ -11,10 +11,16 @@ body {
   height: 100%;
   position: relative;
 }
-
+p,.header_title{
+  font-size: 50px;
+}
 
 div{
   position: relative;
+}
+
+.price{
+  font-size: 40px;
 }
 
 .options-box {
@@ -28,6 +34,15 @@ div{
   width: 500px;
 }
 
+.options-box1 {
+  background: #2eb6C1;
+  border: 1px solid #999;
+  border-radius: 3px;
+  height: 100%;
+  line-height: 35px;
+  padding: 10px 10px 30px 550px;
+  width: 300px;
+}
 .nav{
   padding-bottom: 0.5em;
   list-style: none;
