@@ -12,8 +12,8 @@ Download the Knockout framework.
 
 Knockout used to handle the list, filter.
 
-# Foursquare API(Third Party API)
-  I have implemented (FourSquare API) third-party APIs that provide additional information about each of these locations.
+# Alphavantage API(Third Party API)
+  I have implemented (Alphavantage API) third-party APIs that provide additional information about each of these stocks.
   
-      
+      var googleUrl = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='+ initialStock[j].symbol + '&apikey=###';
   
