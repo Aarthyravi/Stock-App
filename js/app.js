@@ -14,43 +14,54 @@ var initialStock = [
     total: 0,
   },
 ];
+
 t = 0;
-var $total = $('#total');
-for (i=0;i<initialStock.length;i++) {
+var $totalport = $('#totalport');
+/*for (i=0;i<initialStock.length;i++) {
   t += initialStock[i].quan * initialStock[i].stockPrice;
 }
-$total.append(t)
-for (j=0;j<initialStock.length;j++) {
-  var googleUrl = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='+ initialStock[j].symbol + '&apikey=MC0RBZLQPSIREYCD';
+$total.append(t.toFixed(2))*/
 
+t1 = 0
+var $currenttotal = $('#currentinfo')
+for (j=0;j<initialStock.length;j++) {
+  var alphavantageUrl = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='+ initialStock[j].symbol + '&apikey=MC0RBZLQPSIREYCD';
   currentstock(function(data,data1) {
     for (k=0;k<initialStock.length;k++) {
       if (initialStock[k].symbol == data1){
-        currenttotal = 0
-        var $currenttotal = $('#info')
-        t1 = initialStock[k].quan * data
+        t1 += initialStock[k].quan * data
+        t += initialStock[k].quan * initialStock[k].stockPrice;
       }
     }
-    $currenttotal.append(t1)
+   document.getElementById("totalport").innerHTML = t.toFixed(2)
+   document.getElementById("currentinfo").innerHTML = t1.toFixed(2)
+   document.getElementById("gain").innerHTML = (t1 - t).toFixed(2)
+   if((t1 - t).toFixed(2) < 0){
+     document.getElementById("gain").style.backgroundColor = "#ff0000"
+     document.getElementById("gain").style.color = "#ffffff"
+   }
+   else {
+     document.getElementById("gain").style.backgroundColor = "#00cc00"
+     document.getElementById("gain").style.color = "#ffffff"
+   }
   });
-
 }
-  function currentstock (callback){
-    $.ajax({
-      url: googleUrl,
-      dataType: "json",
-      success: function( data ){
-        var stockdata = (data["Meta Data"]["2. Symbol"]);
-        var currentdate = new Date();
-        var date =  currentdate.getFullYear() + "-"
-                   + (currentdate.getMonth()+1)  + "-"
-                   + ("0"+(currentdate.getDate())).slice(-2)
-        var stockdata2 = (data["Time Series (Daily)"][date]["4. close"]);
-        if(typeof callback === "function") callback(stockdata2,stockdata);
-      }
-    });
 
-  }
+function currentstock (callback){
+  $.ajax({
+    url: alphavantageUrl,
+    dataType: "json",
+    success: function( data ){
+      var stockdata = (data["Meta Data"]["2. Symbol"]);
+      var currentdate = new Date();
+      var date =  currentdate.getFullYear() + "-"
+                 + (currentdate.getMonth()+1)  + "-"
+                 + ("0"+(currentdate.getDate())).slice(-2)
+      var stockdata2 = (data["Time Series (Daily)"][date]["4. close"]);
+      if(typeof callback === "function") callback(stockdata2,stockdata);
+    }
+  });
+}
 
 
 var stockInformation = function (data) {
@@ -64,9 +75,11 @@ var ViewModel = function () {
 
   this.stockList = ko.observableArray([]);
 
-  initialStock.forEach(function (stockItem) {
-    self.stockList.push(new stockInformation(stockItem));
-  });
+  self.stock = function(){
+    initialStock.forEach(function (stockItem) {
+      self.stockList.push(new stockInformation(stockItem));
+    });
+  };
 
   this.changeStock = function (clickStock) {
     populate(clickStock);
