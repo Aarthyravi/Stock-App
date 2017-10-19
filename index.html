@@ -26,7 +26,7 @@
               <span id = "totalport" style="float:right;"></span>
             </p><br><br>
              <nav  id="drawer" class="nav">
-             <ul class="nav_list" data-bind="foreach: stockList">
+             <ul id = "ul" class="nav_list" data-bind="foreach: stockList">
                <h2 class = "price" style="float:right;" data-bind="text: total"></h2>
                <li data-bind="click: $parent.changeStock, text: title" class="nav_item"></li><br><br>
              </ul>
