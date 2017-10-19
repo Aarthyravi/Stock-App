@@ -2,22 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Stock Details</title>
+    <title>Yogesh's Stock Details</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div class="container">
       <div class="options-box">
       <header>
-         <h1 class="header_title">Stocks Details</h1>
+         <h1 class="header_title">Yogesh's Stocks Details</h1>
        </header>
        <aside>
            <div>
+              <p id = "gainp "style="text-align:left;">
+                Gain/Loss
+              <span id = "gain" style="float:right;"></span>
+              </p>
+              <p id = "currentinfop" style="text-align:left;">
+               Current Value
+              <span id = "currentinfo" style="float:right;"></span>
+              </p>
               <p style="text-align:left;">
-               Total Portfolio
-              <span id = "total" style="float:right;"></span>
-            </p>
-            <h2>Portfolio</h2><br>
+               <button id = "button" class = "button" data-bind="click: stock">Total Portfolio </button>
+              <span id = "totalport" style="float:right;"></span>
+            </p><br><br>
              <nav  id="drawer" class="nav">
              <ul class="nav_list" data-bind="foreach: stockList">
                <h2 class = "price" style="float:right;" data-bind="text: total"></h2>
@@ -35,4 +42,3 @@
     <script src="js/app.js"></script>
 </body>
 </html>
-
