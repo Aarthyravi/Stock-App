@@ -76,9 +76,15 @@ var ViewModel = function () {
   this.stockList = ko.observableArray([]);
 
   self.stock = function(){
+    var $ul = $('#ul');
+    $ul.text("");
+    document.getElementById("currentinfop").style.display = "none"
+    document.getElementById("gainp").style.display = "none"
+    document.getElementById("currentinfo").style.display = "none"
+    document.getElementById("gain").style.display = "none"
     initialStock.forEach(function (stockItem) {
       self.stockList.push(new stockInformation(stockItem));
-    });
+    })
   };
 
   this.changeStock = function (clickStock) {
