@@ -7,7 +7,7 @@
      * Clicking a Stock name in the list View that gives the today stock price for the associated stock.
      * Added functionality using third-party APIs to provide information when a list view entry is clicked. 
  
-App visit is here <https://aarthyravi.github.io/stock-App/> 
+App visit is here <https://aarthyravi.github.io/Stock-App/> 
 
 # Setup
 Download the Knockout framework. 
