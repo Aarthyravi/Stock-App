@@ -79,7 +79,9 @@ ul{
   margin: 0;
 }
 
-
+#overflow {
+  overflow: scroll;
+}
 #info {
   background: #808080;
   top: 0px;
